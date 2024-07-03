@@ -1,0 +1,12 @@
+fisrt upload cert and key to secret manager using console or command
+using commands
+# Save the certificate
+###gcloud secrets create wildcard-cert-pem --data-file=path/to/your/cert.pem
+
+# Save the key
+###gcloud secrets create wildcard-cert-key --data-file=path/to/your/key.pem
+
+
+to run script to get value from secret manager and crete secret
+###chmod +x create-k8s-secret.sh
+###./create-k8s-secret.sh

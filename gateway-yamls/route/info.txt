@@ -1,0 +1,14 @@
+FOR GKE route
+can use http route, tcproute
+for gke http route need to be created with microservices (like with microserivce namespace)
+for timeout and rate limit follow timeoutfolder in gke-class folder
+
+
+Summary
+Istio: Use EnvoyFilter, VirtualService, and DestinationRule for advanced traffic management.
+
+NGINX: Use annotations on HTTPRoute or Ingress resources for rate limiting and timeouts.
+
+GKE: Use BackendConfig for timeout and rate limiting, integrated with HTTPRoute.
+
+Traefik: Use middleware for rate limiting and timeouts, referenced in HTTPRoute.

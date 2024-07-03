@@ -1,0 +1,2 @@
+get cert.pem and key.pem from any where in cluster then create secret using both files
+###kubectl create secret tls wildcard-cert --cert=path/to/your/cert.pem --key=path/to/your/key.pem -n default

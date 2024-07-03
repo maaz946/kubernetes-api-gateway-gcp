@@ -1,0 +1,19 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: ratelimit
+  namespace: default
+spec:
+  rateLimit:
+    average: 100
+    burst: 50
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: timeout
+  namespace: default
+spec:
+  timeout:
+    readTimeout: 30s
+    writeTimeout: 30s

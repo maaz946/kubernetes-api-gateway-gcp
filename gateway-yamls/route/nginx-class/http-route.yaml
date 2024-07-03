@@ -1,0 +1,22 @@
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: HTTPRoute
+metadata:
+  name: service1-route
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/limit-connections: "20"
+    nginx.ingress.kubernetes.io/limit-rpm: "60"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "30"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "30"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "30"
+spec:
+  parentRefs:
+  - name: sad-kistpay-gateway
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /service1
+    forwardTo:
+    - serviceName: service1
+      port: 80

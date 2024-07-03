@@ -1,0 +1,16 @@
+The choice of GatewayClass depends on the ingress controller you are using and the specific requirements of your Kubernetes environment. Each GatewayClass typically corresponds to a different ingress controller or cloud provider's managed gateway solution.
+
+Summary
+Istio: For using Istio ingress gateway.
+GKE: For Google Kubernetes Engine managed gateway.
+NGINX: For NGINX ingress controller.
+Contour: For Contour ingress controller.
+Traefik: For Traefik ingress controller.
+HAProxy: For HAProxy ingress controller.
+Ambassador: For Ambassador ingress controller.
+Ensure that the controller field in your GatewayClass matches the correct controller string for the ingress solution you are using. This will allow you to define Gateway and HTTPRoute resources that utilize the specified ingress controller.
+
+
+
+in metadata 
+ name is used in gateway yamls

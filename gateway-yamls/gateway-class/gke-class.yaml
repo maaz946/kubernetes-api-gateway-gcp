@@ -1,0 +1,6 @@
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: GatewayClass
+metadata:
+  name: gke-l7-gxlb
+spec:
+  controller: networking.gke.io/gateway

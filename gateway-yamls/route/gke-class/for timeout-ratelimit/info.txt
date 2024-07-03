@@ -1,0 +1,25 @@
+Configure Cloud Armor for Security Policy
+Define a security policy for rate limiting and other security features using Google Cloud Armor:
+
+Create Security Policy:
+###gcloud compute security-policies create service1-security-policy --description "Security policy for service1"
+###gcloud compute security-policies create service2-security-policy --description "Security policy for service2"
+
+Add Rules for Rate Limiting:
+###gcloud compute security-policies rules create 1000 --security-policy service1-security-policy --expression "origin.ip == '0.0.0.0/0'" --action "throttle" --rate-limit-threshold-count 100 --rate-limit-threshold-interval 60s
+###gcloud compute security-policies rules create 1000 --security-policy service2-security-policy --expression "origin.ip == '0.0.0.0/0'" --action "throttle" --rate-limit-threshold-count 100 --rate-limit-threshold-interval 60s
+
+
+
+Summery
+GatewayClass: Defines the class of the gateway.
+Gateway: Handles incoming HTTPS traffic and manages SSL/TLS.
+HTTPRoute: Routes traffic to the appropriate services with specified paths and handles timeouts.
+BackendConfig: Manages backend service configurations like timeouts, connection draining, and rate limiting.
+Service Annotations: Associates services with BackendConfig.
+Cloud Armor: Configures security policies for rate limiting.
+
+
+also do that
+add annotation to http route (example in route-http.yaml (namespace2) )
+add 2 more annotation to service (example in example-service.yaml (namespace2) )
